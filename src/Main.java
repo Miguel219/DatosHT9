@@ -12,7 +12,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 /*Silvio Orozco 18282
- * Jose Castañeda 18161*/
+ * Jose Castañeda 18161
+ * HDT9
+ * */
 public class Main {
 
 	@SuppressWarnings("unchecked")
@@ -64,7 +66,8 @@ public class Main {
 			lines.forEach(i->{
 				String english = i.substring(i.indexOf("(")+1, i.indexOf(","));
 				String spanish = i.substring(i.indexOf(",")+2, i.indexOf(")"));
-				bst.put(english, spanish);
+				if(!bst.contains(english))
+					bst.put(english, spanish);
 			});
 		} catch (IOException e) {
 			// TODO: handle exception

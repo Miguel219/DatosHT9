@@ -1,4 +1,8 @@
-
+/*Silvio Orozco 18282
+ * Jose Castañeda 18161
+ * HDT9
+ * Fuente: https://algs4.cs.princeton.edu/33balanced/SplayBST.java.html
+ * */
 public class SplayTree<Key extends Comparable<Key>, Value> implements BSTInterface<Key, Value> {
 
     private Node root;   // root of the BST
