@@ -23,27 +23,29 @@ public class MyTests {
 
     @Test
     public void TestBinaryTreeDictionary() {
-    	BinaryTreeAssociation Dictionary = new BinaryTreeAssociation();
+    	BSTFactory bstFactory = new BSTFactory();
+    	BSTInterface bst;
+    	bst = bstFactory.create("RedBlack");
+    	//Se lee el archivo txt con las palabras traducidas que tendra el diccionario
     	//Se lee el archivo txt con las palabras traducidas que tendra el diccionario
     			try {
-    				Stream<String> lines = Files.lines(Paths.get("diccionarioprueba.txt"),StandardCharsets.UTF_8);
+    				Stream<String> lines = Files.lines(Paths.get("diccionario.txt"),StandardCharsets.UTF_8);
     				lines.forEach(i->{
     					String english = i.substring(i.indexOf("(")+1, i.indexOf(","));
     					String spanish = i.substring(i.indexOf(",")+2, i.indexOf(")"));
-    					Association<String, String> association = new Association<String,String>(english,spanish);
-    					BinaryTreeAssociation SubTree = new BinaryTreeAssociation(association);
-    					Dictionary.newTranslation(SubTree);
+    					if(!bst.contains(english))
+    						bst.put(english, spanish);
     				});
     			} catch (IOException e) {
     				// TODO: handle exception
     				e.printStackTrace();
     			}
-    		//Ya se ha agregado todo al arbol binario que contiene nuestro dicccionario.
-    		//Se comienzan a realizar pruebas con traducciones
-    		//Aqui guarda la palabra traducida
-    		//Esta referencia es un hoja
-    		Boolean isLeaf=Dictionary.right().isLeaf();
-    		assertEquals(false, isLeaf,"Este arbol  no es una hoja, pues tiene 2 hijos." );
+    		
+    			
+    	
+    		Boolean hasHi = bst.contains("hi");
+    		String hi = (String) bst.get("hi");
+    		assertEquals(null, hi,"Debe devolver null porque no existe." );
     			
     }
 
