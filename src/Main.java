@@ -66,7 +66,7 @@ public class Main {
 			lines.forEach(i->{
 				String english = i.substring(i.indexOf("(")+1, i.indexOf(","));
 				String spanish = i.substring(i.indexOf(",")+2, i.indexOf(")"));
-				if(!bst.contains(english))
+				
 					bst.put(english, spanish);
 			});
 		} catch (IOException e) {
